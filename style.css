@@ -1,0 +1,165 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+@font-face {
+	font-family: ZenDots;
+	src: url(font/ZenDots-Regular.ttf);
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #333;
+	font-family: ZenDots;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#clock {
+	position: relative;
+	width: 250px;
+	height: 250px;
+	border-radius: 50%;
+	background: #fff;
+	border: 10px solid #ccc;
+}
+
+#clock::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+	background: #333;
+	z-index: 999;
+}
+
+.numbers {
+	position: relative;
+	border-radius: 50%;
+	color: #333;
+	font-weight: bold;
+}
+.numbers :nth-child(odd)::before,
+.numbers :nth-child(even)::before {
+	position: absolute;
+}
+
+.numbers :nth-child(1)::before {
+	content: "1";
+	right: 60px;
+	top: 15px;
+}
+.numbers :nth-child(2)::before {
+	content: "2";
+	right: 25px;
+	top: 50px;
+}
+.numbers :nth-child(3)::before {
+	content: "3";
+	top: 100px;
+	right: 10px;
+}
+.numbers :nth-child(4)::before {
+	content: "4";
+	top: 150px;
+	right: 25px;
+}
+.numbers :nth-child(5)::before {
+	content: "5";
+	top: 190px;
+	right: 60px;
+}
+.numbers :nth-child(6)::before {
+	content: "6";
+	top: 205px;
+	left: calc(50% - 10px);
+}
+.numbers :nth-child(7)::before {
+	content: "7";
+	top: 190px;
+	left: 60px;
+}
+.numbers :nth-child(8)::before {
+	content: "8";
+	top: 150px;
+	left: 25px;
+}
+.numbers :nth-child(9)::before {
+	content: "9";
+	top: 100px;
+	left: 10px;
+}
+.numbers :nth-child(10)::before {
+	content: "10";
+	left: 25px;
+	top: 50px;
+}
+.numbers :nth-child(11)::before {
+	content: "11";
+	left: 60px;
+	top: 15px;
+}
+.numbers :nth-child(12)::before {
+	content: "12";
+	top: 2px;
+	left: calc(50% - 10px);
+}
+
+.hr,
+.mn,
+.sc {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#hr,
+#mn,
+#sc {
+	content: "";
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0px;
+	border-radius: 10px;
+}
+
+#hr {
+	width: 60px;
+	height: 10px;
+	background: #000;
+	z-index: 1;
+}
+
+#mn {
+	width: 80px;
+	height: 6px;
+	background: #ccc;
+	z-index: 2;
+}
+
+#sc {
+	left: -20px;
+	width: 120px;
+	height: 3px;
+	background: rgb(225, 20, 14);
+	z-index: 3;
+}
